@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\VeldtAR.Unity\Assets\Scripts\ServerShared\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MagicOnion\MagicOnion.Abstractions\MagicOnion.Abstractions.csproj" />
+    <PackageReference Include="MagicOnion.MSBuild.Tasks" Version="4.5.2" PrivateAssets="All" />
+    <PackageReference Include="MessagePack.MSBuild.Tasks" Version="2.5.64-alpha" PrivateAssets="All" />
+  </ItemGroup>
+
+  <Target Name="GenerateMessagePack" AfterTargets="Compile">
+    <MessagePackGenerator IntermediateOutputPath="..\VeldtAR.Unity\Assets\Scripts\Generated" Compile="@(Compile)" ReferencePath="@(ReferencePath)" DefineConstants="$(DefineConstants)" Namespace="MessagePack" ResolverName="GeneratedResolver" />
+  </Target>
+  <Target Name="GenerateMagicOnion" AfterTargets="Compile">
+    <MagicOnionGenerator Input=".\VeldtAR.Shared.csproj" Output="..\VeldtAR.Unity\Assets\Scripts\Generated\MagicOnion.Generated.cs" />
+  </Target>
+</Project>
+
+    

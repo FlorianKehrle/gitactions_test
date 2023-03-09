@@ -15,7 +15,7 @@ jobs:
   publish-hello-docker-image:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
@@ -24,6 +24,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the hello-docker Docker image
         run: |
-          docker build --tag ghcr.io/floriankehrle/hello-docker-gcr-demo:latest -f subdir/Dockerfile .
-          docker run ghcr.io/floriankehrle/hello-docker-gcr-demo:latest
+          docker build --tag ghcr.io/floriankehrle/hello-docker-gcr-demo:latest -f VeldtAR.Server/Dockerfile .
+#          docker run ghcr.io/floriankehrle/hello-docker-gcr-demo:latest
           docker push ghcr.io/floriankehrle/hello-docker-gcr-demo:latest

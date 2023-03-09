@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0</TargetFrameworks>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\MagicOnion\opensource.snk</AssemblyOriginatorKeyFile>
+    <nullable>enable</nullable>
+    <DefineConstants>TRACE;NON_UNITY</DefineConstants>
+    <LangVersion>default</LangVersion>
+
+    <!-- NuGet -->
+    <PackageId>MagicOnion.Server</PackageId>
+    <Description>MagicOnion server built on top of ASP.NET Core. $(MagicOnionPackageDescription)</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.51.0" />
+    <PackageReference Include="Grpc.Core.Api" Version="2.51.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MagicOnion.Abstractions\MagicOnion.Abstractions.csproj" />
+    <ProjectReference Include="..\MagicOnion.Shared\MagicOnion.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DynamicArgumentTuple.tt">
+      <LastGenOutput>DynamicArgumentTuple.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+
+</Project>
