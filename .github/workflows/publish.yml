@@ -25,5 +25,5 @@ jobs:
       - name: Build the hello-docker Docker image
         run: |
           docker build --tag ghcr.io/floriankehrle/hello-docker-gcr-demo:latest -f VeldtAR.Server/Dockerfile .
-#          docker run ghcr.io/floriankehrle/hello-docker-gcr-demo:latest
+          docker run ghcr.io/floriankehrle/hello-docker-gcr-demo:latest
           docker push ghcr.io/floriankehrle/hello-docker-gcr-demo:latest
