@@ -22,7 +22,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build the hello-docker Docker image
+      - name: Build the gitactions_test docker image
         run: |
-          docker build --tag ghcr.io/floriankehrle/githubactions_test:latest -f VeldtAR.Server/Dockerfile .
-          docker push ghcr.io/floriankehrle/githubactions_test:latest
+          docker build --tag ghcr.io/floriankehrle/gitactions_test:latest -f VeldtAR.Server/Dockerfile .
+          docker push ghcr.io/floriankehrle/gitactions_test:latest
